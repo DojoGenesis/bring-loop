@@ -1,0 +1,32 @@
+# bring-loop
+
+> Agent front door. bring-loop gates OUTWARD action (sends/decisions/closes/ships)
+> the way build loops gate inward action: one action a day, surface+stage only,
+> honest separate streams, dual human/agent faces with a parity gate. If you are
+> an agent operating in a repo that contains a `bring/` directory, read this.
+
+## The contract you must honor (SPEC.md invariants)
+
+- Surface + stage ONLY: you may pull up drafts, confirm recipients, prepare briefs
+  for today's bring — you MUST NOT send, decide, or execute the outward act yourself.
+- ONE action: present the top action, not the whole queue.
+- Log outcomes only when the human says they happened:
+  `python plugin/scripts/bring_core.py log <sent|decided|closed|shipped|skipped> --id <id> [--note ...]`
+- A skip with a reason is a valid entry. Never shame a logged skip.
+- You MAY write new actions into `bring/actions.md` (you are the human's agent);
+  the TOOLING never edits that file — and after any log, keep `SCOREBOARD.md`
+  fresh (`scoreboard`) so `check` stays green.
+
+## Files
+
+- [SPEC.md](SPEC.md): the pattern spec — invariants, file formats, selection, scoring
+- [README.md](README.md): human front door + origin story (the BringItCruz! effect)
+- `plugin/scripts/bring_core.py`: reference CLI — init · brief [--json] · log · status · scoreboard · check
+- `plugin/`: Claude Code adapter (hooks + skills)
+- In a user project: `bring/actions.md` (intent, human/agent-written) ·
+  `bring/ledger.jsonl` (history, tool-appended) · `bring/SCOREBOARD.md` (generated human face)
+
+## Machine-readable state
+
+`brief --json` emits `{date, top{id,title,kind,due,link,note}, deck[], week{}, streak, cap}`.
+`check` exits nonzero when the human face drifted from source — treat that as a gate.
