@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unit tests for bring_core.py. Run: python tests/test_bring_core.py"""
+"""Unit tests for bring_core.py. Run: python3 -m unittest discover -s tests -v (from the repo root)"""
 import datetime
 import os
 import sys

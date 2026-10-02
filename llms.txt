@@ -11,7 +11,7 @@
   for today's bring — you MUST NOT send, decide, or execute the outward act yourself.
 - ONE action: present the top action, not the whole queue.
 - Log outcomes only when the human says they happened:
-  `python plugin/scripts/bring_core.py log <sent|decided|closed|shipped|skipped> --id <id> [--note ...]`
+  `python3 plugin/scripts/bring_core.py log <sent|decided|closed|shipped|skipped> --id <id> [--note ...]`
 - A skip with a reason is a valid entry. Never shame a logged skip.
 - You MAY write new actions into `bring/actions.md` (you are the human's agent);
   the TOOLING never edits that file — and after any log, keep `SCOREBOARD.md`

@@ -18,11 +18,11 @@ repo is that gate, generalized. ("Built it, now bring it.")
 ## Quick start (any system)
 
 ```bash
-python plugin/scripts/bring_core.py init          # scaffolds bring/ in your project
-$EDITOR bring/actions.md                          # list your outward actions
-python plugin/scripts/bring_core.py brief         # today's ONE action
-python plugin/scripts/bring_core.py log sent --id <id>
-python plugin/scripts/bring_core.py check         # parity gate for the scoreboard
+python3 plugin/scripts/bring_core.py init          # scaffolds bring/ in your project
+$EDITOR bring/actions.md                           # list your outward actions
+python3 plugin/scripts/bring_core.py brief         # today's ONE action
+python3 plugin/scripts/bring_core.py log sent --id <id>
+python3 plugin/scripts/bring_core.py check         # parity gate for the scoreboard
 ```
 
 Wire `brief` into whatever starts your day — a Claude Code hook, `.bashrc`,
@@ -57,3 +57,6 @@ v0.1 draft. MIT licensed (license choice re-confirmed at first public
 release). Origin story, prior art, and the measured baseline live in the
 TresPies operator archives; the pattern is open — the knowledge is free, bring
 your own trust.
+
+Upgrading to 0.1.2: if `check` reports DRIFT, run `python3 plugin/scripts/bring_core.py scoreboard`
+once to regenerate `SCOREBOARD.md` (its header now names `python3`).
